@@ -1,0 +1,105 @@
+
+<%- include('./base/header.ejs') %>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold" href="/">RDEC</a>
+
+      <!-- Left-side links -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/addstudent">Add Student</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list/students">List Student</a>
+        </li>
+      </ul>
+
+      <!-- Toggler for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Right-side links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/settings">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <!-- <div class="container text-center mt-5">
+  <div class="card shadow-lg p-4 rounded-4">
+    <h1 class="text-primary">WELCOME ADMIN</h1>
+    <p class="lead">You are now logged in to the admin dashboard.</p>
+  </div>
+</div> -->
+
+  <div class="container">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th> student photo</th>
+          <th>S.No</th>
+          <th>Roll No</th>
+          <th>Name</th>
+          <th>Father Name</th>
+          <th>Course</th>
+          <th>Branch</th>
+          <th>Year of Admission</th>
+          <th> Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach((student, index)=> { %>
+          <tr>
+               <td><img src="<%= student.studentImage %>" width='100px' height='100px'></td>
+            <td>
+              <%= index + 1 %>
+            </td>
+            <td>
+              <%= student.rollNo %>
+            </td>
+            <td>
+              <%= student.name %>
+            </td>
+            <td>
+              <%= student.fatherName %>
+            </td>
+            <td>
+              <%= student.course %>
+            </td>
+            <td>
+              <%= student.branch %>
+            </td>
+            <td>
+              <%= student.yearOfAdm %>
+            </td>
+            <td>
+              <a class="btn btn-warning" href="/edit/student/page/<%=student._id%>">Edit </a>
+              <a class="btn btn-danger "href="/delete/student/<%=student._id%>"> Delete</a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+
+<%- include('./base/footer.ejs') %>

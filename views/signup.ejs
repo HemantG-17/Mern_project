@@ -1,0 +1,154 @@
+<%- include('./base/header.ejs') %>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+      /* soft gradient */
+      background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+      /* soft light blue gradient */
+
+    }
+
+    .signup-card {
+      background-color: #f9f5ff;
+      /* soft lavender */
+      border-radius: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .signup-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-custom-signup {
+      background-color: #6366f1;
+      /* indigo */
+      color: white;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom-signup:hover {
+      background-color: #4f46e5;
+      transform: scale(1.05);
+    }
+
+    .btn-custom-login {
+      background-color: #10b981;
+      /* teal/green */
+      color: white;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom-login:hover {
+      background-color: #059669;
+      transform: scale(1.05);
+    }
+
+    .form-control {
+      border-radius: 12px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: #374151;
+    }
+
+    /* Right side background image */
+    .login-prompt {
+      background: url('/rd.jpeg') no-repeat center center/cover;
+      opacity: 0.7;
+      position: relative;
+      color: white;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* Overlay for readability */
+    .login-prompt::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      /* dark overlay */
+    }
+
+    .login-content {
+      position: relative;
+      z-index: 1;
+      /* keeps text above overlay */
+    }
+  </style>
+
+  <form action="/add/user" method="post">
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+      <div class="card signup-card shadow-lg overflow-hidden" style="width: 900px; max-width: 100%;">
+        <div class="row g-0">
+
+          <!-- Left Side: Sign Up Form -->
+          <div class="col-md-6 d-flex align-items-center">
+            <div class="p-5 w-100">
+              <h2 class="card-title text-center mb-4">Sign Up</h2>
+
+
+
+              <!-- First Name -->
+              <div class="mb-3">
+                <label for="firstName" class="form-label fw-bold">First Name</label>
+                <input type="text" id="firstName" class="form-control" name="firstName"
+                  placeholder="Enter your first name" required>
+              </div>
+
+              <!-- Last Name -->
+              <div class="mb-3">
+                <label for="lastName" class="form-label fw-bold">Last Name</label>
+                <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Enter your last name"
+                  required>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email</label>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Enter your email"
+                  required>
+              </div>
+
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label fw-bold">Password</label>
+                <input type="password" id="password" class="form-control" name="password"
+                  placeholder="Create a password" required minlength="6" autocomplete="off">
+              </div>
+
+              <!-- Sign Up Button -->
+              <button type="submit" class="btn btn-custom-signup w-100 fw-bold">Sign Up</button>
+  </form>
+  </div>
+  </div>
+
+
+  <!-- Right Side: Login Prompt with background image -->
+  <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center p-5 login-prompt">
+    <div class="login-content">
+      <h3 class="fw-bold mb-3">Already have an account?</h3>
+      <p class="mb-4">Login to continue to your dashboard.</p>
+      <a href="/" class="btn btn-custom-login fw-bold px-4 py-2">Login</a>
+    </div>
+
+    <!-- Right Side: Login Prompt -->
+    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center text-center p-5"
+      style="background-color: #eef2ff;">
+      <h3 class="fw-bold mb-3 text-dark">Already have an account?</h3>
+      <p class="text-muted mb-4">Login to continue to your dashboard.</p>
+      <a href="/user/login" class="btn btn-custom-login fw-bold px-4 py-2">Login</a>
+
+    </div>
+
+  </div>
+  </div>
+  </div>
+  </form>
+  <%- include('./base/footer.ejs') %>
