@@ -76,7 +76,7 @@ async function saveEditedStudent(req, res) {
         student.rollNo = req.body.rollNo;
         student.name = req.body.name;
         student.fatherName = req.body.fatherName;
-        student.fatherName = req.body.motherName;
+        student.motherName = req.body.motherName;
         student.course = req.body.course;
         student.branch = req.body.branch;
         student.yearOfAdm = req.body.yearOfAdm;
